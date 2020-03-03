@@ -5,7 +5,16 @@ var razorpay = new Razorpay({  key: 'rzp_test_DSfAaZAnXaWp0j' });
 razorpay.checkPaymentAdapter('gpay')
   .then(() => {
     // Google Pay Microapps API is available, show the payment option
-    alert('Google spot available on device');
+    alert('Google spot available on device making payment');
+  razorpay.createPayment({
+    "key": "rzp_test_DSfAaZAnXaWp0j"
+    "amount": 5000,
+	  "email": "gaurav.kumar@example.com",
+	  "contact": "9123456780",
+	  "method": "upi",
+	  "_[flow]": "intent",
+    "upi_provider": "google_pay"
+});
   })
   .catch(() => {
     // Google Pay Microapps API is unavailable
