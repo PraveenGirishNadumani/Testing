@@ -3,7 +3,7 @@
 <script>
 var razorpay = new Razorpay({  key: 'rzp_test_gjmcfEo617naic' });
 
-razorpay.checkPaymentAdapter('gpay')
+razorpay.checkPaymentAdapter('microapps.gpay')
   .then(() => {
     // Google Pay Microapps API is available, show the payment option
     alert('Google spot available');
