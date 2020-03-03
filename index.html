@@ -6,14 +6,7 @@ razorpay.checkPaymentAdapter('gpay')
   .then(() => {
     // Google Pay Microapps API is available, show the payment option
     alert('Google spot available');
-    razorpay.createPayment({
-    "key": "rzp_test_gjmcfEo617naic"
-    "amount": 5000,
-	  "email": "gaurav.kumar@example.com",
-	  "contact": "7204795036",
-	  "method": "upi",
-	  "_[flow]": "intent",
-    "upi_provider": "google_pay"
+ 
 });
   })
   .catch(() => {
