@@ -11,10 +11,8 @@ razorpay.checkPaymentAdapter('gpay')
     "amount": "5000",
 	  "email": "gaurav.kumar@example.com",
 	  "contact": "9123456780",
-	  "method": "upi",
-	  "_[flow]": "intent",
-    "upi_provider": "google_pay"
-});
+	  "method": "upi"
+},{ gpay: true });
   })
   .catch(() => {
     // Google Pay Microapps API is unavailable
