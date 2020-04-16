@@ -13,7 +13,6 @@ razorpay.checkPaymentAdapter('gpay')
 	  "contact": "9123456780",
 	  "method": "upi"
 },{ gpay: true });
-}
 	
 razorpay.on('payment.success', function(resp) {
     alert(resp.razorpay_payment_id),
@@ -27,6 +26,7 @@ razorpay.on('payment.error', function(resp){alert(resp.error.description)});
     // Google Pay Microapps API is unavailable
     alert('Not available');
   });
+}
 </script>
 
-//   ### Run the above file on mobile with link: https://praveengirishnadumani.github.io/Testing/
+// Run the above file on mobile with link: https://praveengirishnadumani.github.io/Testing/
