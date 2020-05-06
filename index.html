@@ -3,6 +3,12 @@
 <br>
 <center><h1><button id="rzp-button1">Pay</button></h1></center>
 <script type="text/javascript" src="https://checkout.razorpay.com/v1/razorpay.js"></script>
+<br>
+<br>
+<br>
+<button id="rzp-button">Pay-with-standard</button>
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
 <script>
 var razorpay = new Razorpay({  key: 'rzp_live_DRG4hqHjMAwnFI' });
 document.getElementById('rzp-button1').onclick = function(e){
@@ -29,6 +35,38 @@ razorpay.on('payment.error', function(resp){alert(resp.error.description)});
     // Google Pay Microapps API is unavailable
     alert('Not available');
   });
+}
+</script>
+<script>
+var options = {
+    "key": "rzp_test_hRuAVTWs8ySKKs",
+    "amount": "40000",
+    "name": "DJ Tiesto",
+    "description": "Tron Legacy",
+    "redirect":true,
+    "image": "https:\/\/s29.postimg.org\/r6dj1g85z\/daft_punk.jpg",
+    "prefill": {
+        "name": "Daft Punk",
+        "email": "customer@merchant.com",
+        "contact": "9999999999"
+    },
+    "notes": {
+        "address": "Hello World",
+        "merchant_order_id": "12312321"
+    },
+    "theme": {
+        "color": "#F37254"
+    },
+    // "order_id": "order_Edtmt30VuSzOLi",
+    "callback_url": "www.google.com"
+};
+var rzp1 = new Razorpay(options);
+document.getElementById('rzp-button').onclick = function(e){
+    rzp1.on('payment.failed', function (response) { 
+        alert(response.error.metadata);
+    });
+    rzp1.open();
+    e.preventDefault();
 }
 </script>
 
