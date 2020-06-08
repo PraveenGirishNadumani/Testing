@@ -10,7 +10,9 @@
 <script type="text/javascript" src="https://checkout.razorpay.com/v1/razorpay.js"></script>
 <script type="text/javascript">
 var razorpay = new Razorpay({
-  key:'rzp_test_DSfAaZAnXaWp0j'
+  key:'rzp_test_DSfAaZAnXaWp0j',
+  callback_url: 'http://www.google.com',
+  redirect: true
 });
 // var razorpay = new Razorpay(...); // as before
 
