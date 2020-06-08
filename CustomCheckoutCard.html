@@ -20,20 +20,21 @@ var data = {
   'card[number]': '4111111111111111',
   'card[cvv]': '566',
   'card[expiry_month]': '10',
-  'card[expiry_year]': '20'
+  'card[expiry_year]': '20',
+    callback_url:"http://www.google.com"
 };
  
 document.getElementById('rzp-button1').onclick = function(e){
   
     razorpay.createPayment(data);
 
-  razorpay.on('payment.success', function(resp) {
-    alert(resp.razorpay_payment_id);
-    // alert(resp.razorpay_order_id);
-    // alert(resp.razorpay_signature);
-    }); // will pass payment ID, order ID, and Razorpay signature to success handler.
+//   razorpay.on('payment.success', function(resp) {
+//     alert(resp.razorpay_payment_id);
+//     // alert(resp.razorpay_order_id);
+//     // alert(resp.razorpay_signature);
+//     }); // will pass payment ID, order ID, and Razorpay signature to success handler.
 
-  razorpay.on('payment.error', function(resp){alert(resp.error.code)}); // will pass error object to error handler
+//   razorpay.on('payment.error', function(resp){alert(resp.error.code)}); // will pass error object to error handler
 
 }
 </script>
