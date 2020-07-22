@@ -18,17 +18,18 @@ var razorpay = new Razorpay({
 
 
 var data = {
-  amount:"500",
+  amount:"5000",
   currency: "INR",// Default is INR. We support more than 90 currencies.
   email: 'gaurav.kumar@example.com',
   order_id:"order_FHQfUkbhmGe84M",
   contact: '+919911792882',
-  method:'card',
-  'card[name]': 'Gaurav Kumar',
-  'card[number]': '4111111111111111',
-  'card[cvv]': '566',
-  'card[expiry_month]': '10',
-  'card[expiry_year]': '20',
+  method:'netbanking',
+  bank:'SBIN',
+//   'card[name]': 'Gaurav Kumar',
+//   'card[number]': '4111111111111111',
+//   'card[cvv]': '566',
+//   'card[expiry_month]': '10',
+//   'card[expiry_year]': '20',
     callback_url:"http://www.google.com"
 };
  
