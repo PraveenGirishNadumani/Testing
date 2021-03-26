@@ -10,7 +10,7 @@ var razorpay = new Razorpay({
 
 var data = {
     "amount": 50000,
-    "order_id":"order_GrEzjw3nWzOiU2",
+    "order_id":"order_GrEwMm4D4UYBpA",
     // "customer_id": "cust_GeZNyKtl25RXWd",
     // "save":1,
     "contact": "9896140000",
@@ -39,6 +39,14 @@ razorpay.on('payment.success', function(resp) {
   razorpay.on('payment.error', function(resp){alert(resp.error.description)});
  
 document.getElementById('rzp-button1').onclick = function(e){
+
+    let URL = ' https://reqres.in/api/users?page=2';
+
+    fetch(URL)
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.log(error));
+   
   
     razorpay.createPayment(data);
 
