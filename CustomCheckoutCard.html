@@ -1,49 +1,48 @@
-<center>
-<br>
-<br>
-<br>
-<br>
-<br>
+
 <button id="rzp-button1">Pay</button>
-</center>
 
 <script type="text/javascript" src="https://checkout.razorpay.com/v1/razorpay.js"></script>
 <script type="text/javascript">
-var razorpay = new Razorpay({
-  key:'rzp_live_Nd4cMOpB2WTE5x',
-  callback_url: 'http://www.google.com',
-  redirect: true
-});
-// var razorpay = new Razorpay(...); // as before
 
+var razorpay = new Razorpay({
+  key:'rzp_test_DSfAaZAnXaWp0j'
+});
 
 var data = {
-  amount:"5000",
-  currency: "INR",// Default is INR. We support more than 90 currencies.
-  email: 'gaurav.kumar@example.com',
-  order_id:"order_FbLB3rxtJXTaBP",
-  contact: '+919911792882',
-  method:'netbanking',
-  bank:'HDFC',
-//   'card[name]': 'Gaurav Kumar',
-//   'card[number]': '4111111111111111',
-//   'card[cvv]': '566',
-//   'card[expiry_month]': '10',
-//   'card[expiry_year]': '20',
-    callback_url:"http://www.google.com"
+    "amount": 50000,
+    "order_id":"order_GrEwMm4D4UYBpA",
+    // "customer_id": "cust_GeZNyKtl25RXWd",
+    // "save":1,
+    "contact": "9896140000",
+    "email": "jahangirali@gmail.com",
+
+    // "method": "upi",
+    // "vpa": "recmanpreapp@icici",
+
+    // "method":"netbanking",
+    // "bank":"SBIN"
+
+    'method': 'card',
+    'card[name]': 'Gaurav Kumar',
+    'card[number]': '4111111111111111',
+    'card[cvv]': '566',
+    'card[expiry_month]': '10',
+    'card[expiry_year]': '22'
+
+
 };
+razorpay.on('payment.success', function(resp) {
+    alert(resp.razorpay_payment_id),
+    alert(resp.razorpay_order_id),
+    alert(resp.razorpay_signature)}); // will pass payment ID, order ID, and Razorpay signature to success handler
+
+  razorpay.on('payment.error', function(resp){alert(resp.error.description)});
  
 document.getElementById('rzp-button1').onclick = function(e){
   
     razorpay.createPayment(data);
 
-//   razorpay.on('payment.success', function(resp) {
-//     alert(resp.razorpay_payment_id);
-//     // alert(resp.razorpay_order_id);
-//     // alert(resp.razorpay_signature);
-//     }); // will pass payment ID, order ID, and Razorpay signature to success handler.
 
-//   razorpay.on('payment.error', function(resp){alert(resp.error.code)}); // will pass error object to error handler
 
 }
 </script>
